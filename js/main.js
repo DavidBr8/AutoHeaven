@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	const allNavItems = document.querySelectorAll('.nav-link');
 	const navList = document.querySelector('.navbar-collapse');
 	const buttonCheck = document.querySelector('.navbar-toggler');
+	const footerYear = document.querySelector('.year');
 
 	function scrollAddShadow() {
 		if (window.scrollY >= 50) {
@@ -24,6 +25,12 @@ document.addEventListener('DOMContentLoaded', function () {
 		item.addEventListener('click', () => navList.classList.remove('show'))
 	);
 
+	const handleCurrentYear = () => {
+		const year = new Date().getFullYear();
+		footerYear.innerText = year;
+	};
+
+	handleCurrentYear();
 	window.addEventListener('scroll', scrollAddShadow);
 	buttonCheck.addEventListener('click', clickAddShadow);
 });
